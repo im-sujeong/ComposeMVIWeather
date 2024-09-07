@@ -6,6 +6,6 @@ import com.sujeong.weather.presentation.util.UiText
 data class WeatherState(
     val weatherInfo: WeatherInfo? = null,
     val address: String? = null,
-    val isLoading: Boolean = false,
+    val isLoading: Boolean = true,
     val error: UiText? = null
 )

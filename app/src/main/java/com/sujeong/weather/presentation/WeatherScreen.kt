@@ -26,6 +26,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.core.content.ContextCompat
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -56,9 +57,11 @@ fun WeatherScreen(
         contract = ActivityResultContracts.RequestMultiplePermissions()
     ) { results ->
         val allPermissionsGranted = results.all { it.value }
-        if (results.isNotEmpty() && allPermissionsGranted) {
-            viewModel.loadWeatherInfo()
-        }
+//        if (results.isNotEmpty() && allPermissionsGranted) {
+//
+//        }
+
+        viewModel.loadWeatherInfo()
     }
 
     if(hasLocationPermission(context)) {
@@ -99,6 +102,7 @@ fun WeatherScreen(
                         Text(
                             text = it.asString(),
                             style = Typography.bodyLarge,
+                            textAlign = TextAlign.Center
                         )
                     }
                 } ?: kotlin.run {
